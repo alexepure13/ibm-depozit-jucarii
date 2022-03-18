@@ -31,13 +31,13 @@ public class IndexController {
 
     @PostConstruct
     private void loadJucarii() {
-        Jucarii j1 = new Jucarii(1, "Masina", "Audi", "3-5 ani", 2500.0, 200);
-        Jucarii j2 = new Jucarii(2, "Masina", "Matiz", "3-5 ani", 2500.0, 200);
-        Jucarii j3 = new Jucarii(3, "Masina", "Aro", "3-5 ani", 2500.0, 200);
-        Jucarii j4 = new Jucarii(4, "Masina", "Dacia", "3-5 ani", 2500.0, 200);
-        Jucarii j5 = new Jucarii(5, "Masina", "Skoda", "3-5 ani", 2500.0, 200);
-        Jucarii j6 = new Jucarii(6, "Masina", "Mercedes", "3-5 ani", 2500.0, 200);
-        Jucarii j7 = new Jucarii(7, "Masina", "BMW", "3-5 ani", 2500.0, 200);
+        Jucarii j1 = new Jucarii(1, "Mașină electrică", "Mașini Electrice", "4-10 ani", 500.0, 100);
+        Jucarii j2 = new Jucarii(2, "Păpușă Barbie", "Noriel", "2-8 ani", 100.0, 50);
+        Jucarii j3 = new Jucarii(3, "Căluț de jucărie", "Picodino", "1-7 ani", 80.0, 70);
+        Jucarii j4 = new Jucarii(4, "Ursuleț de pluș Teddy", "Noriel", "1-7 ani", 200.0, 80);
+        Jucarii j5 = new Jucarii(5, "Set bucătărie", "AlindaShop", "3-8 ani", 300.0, 40);
+        Jucarii j6 = new Jucarii(6, "LEGO Classic", "LEGO", "5-12 ani", 150.0, 200);
+        Jucarii j7 = new Jucarii(7, "Pistol cu apă", "AFYBABY", "3-5 ani", 70.0, 20);
 
 
         listJucarii = new ArrayList<>();
@@ -50,13 +50,13 @@ public class IndexController {
         listJucarii.add(j6);
         listJucarii.add(j7);
 
-        Categorii c1 = new Categorii(1, "Masinute", 40);
-        Categorii c2 = new Categorii(2, "Masinute", 40);
-        Categorii c3 = new Categorii(3, "Masinute", 40);
-        Categorii c4 = new Categorii(4, "Masinute", 40);
-        Categorii c5 = new Categorii(5, "Masinute", 40);
-        Categorii c6 = new Categorii(6, "Masinute", 40);
-        Categorii c7 = new Categorii(7, "Masinute", 40);
+        Categorii c1 = new Categorii(1, "Mașinuțe", 100);
+        Categorii c2 = new Categorii(2, "Păpuși", 50);
+        Categorii c3 = new Categorii(3, "Căluți", 70);
+        Categorii c4 = new Categorii(4, "Ursuleț", 80);
+        Categorii c5 = new Categorii(5, "Set-uri copii", 40);
+        Categorii c6 = new Categorii(6, "LEGO", 200);
+        Categorii c7 = new Categorii(7, "Jucării piscină", 40);
 
         listaCategorii = new ArrayList<>();
 
