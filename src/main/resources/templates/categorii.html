@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
     <script defer th:src="@{/js/bootstrap.js}"></script>
+    <script defer th:src="@{/js/custom.js}"></script>
 </head>
 <body id="page-top">
 
@@ -39,6 +40,9 @@
                     <a class="nav-link" href="#">example@depozitdejucarii.ro</a>
                 </li>
             </ul>
+            <form style="display:flex;" class="form-inline">
+                <input style="margin: 0 5px 0 0" class="form-control mr-sm-2" type="search" placeholder="Caută după tip" onkeyup="searchByTypeFunction()" aria-label="Search" id="myInput" />
+            </form>
             <!--            <form class="d-flex">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -51,7 +55,7 @@
 <h2 class="text-categorii">Categorii</h2>
 
 <div>
-    <table style="width: 80%;margin: 20px auto 20px auto;" class="table table-bordered table-striped">
+    <table style="width: 80%;margin: 20px auto 20px auto;" class="table table-striped table-bordered table-sm" id="myTable">
         <thead class="thead">
         <tr>
             <th>ID</th>
@@ -71,10 +75,10 @@
 
 <div class="statistics">
     <span>Total intrări:&nbsp;</span>
-    <span th:text="${categoriiStat.get(0).getIntrariTotal()}"></span>
+    <span id="text-intrari-categorii" th:text="${categoriiStat.get(0).getIntrariTotal()}"></span>
     <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
     <span>Cantitate totală:&nbsp;</span>
-    <span th:text="${categoriiStat.get(0).getCantitateTotal()}"></span>
+    <span id="text-cantitate-categorii" th:text="${categoriiStat.get(0).getCantitateTotal()}"></span>
 
 </div>
 
@@ -139,6 +143,32 @@
 
 </footer>
 
+<script>
+    function searchByTypeFunction() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        var totalIntrari = 0;
+        var totalCantitate = 0;
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                    totalIntrari++;
+                    totalCantitate+=parseFloat(table.rows[i].cells[2].innerHTML);
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+        document.getElementById("text-intrari-categorii").innerHTML = totalIntrari;
+        document.getElementById("text-cantitate-categorii").innerHTML = totalCantitate;
+    }
+</script>
 
 </body>
 </html>
