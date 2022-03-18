@@ -7,18 +7,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
     <script defer th:src="@{/js/bootstrap.js}"></script>
     <title>Adauga categorii</title>
 </head>
 <!--<body style="min-height: 100vh;">-->
 <body th:style="'background-image:url(' + @{/img/background2.png} + ');background-size: contain;background-repeat: no-repeat;background-position: center center; '">
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary navbar-center">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index">DEPOZIT JUCARII</a>
+        <img style="width: 30px;height: 40px;" class="navbar-brand" th:src="@{/img/logo.png}">
+        <a style="font-family: 'Sriracha', cursive;" class="navbar-brand" href="index">Depozit de jucării</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="index">Acasă</a>
@@ -27,10 +29,21 @@
                     <a class="nav-link" href="categorii">Categorii</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="jucarii">Jucării</a>
+                    <a class="nav-link" href="jucarii">Jucării</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">example@depozitdejucarii.ro</a>
                 </li>
             </ul>
+            <!--            <form class="d-flex">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>-->
         </div>
+
     </div>
 </nav>
 
@@ -56,7 +69,7 @@
     <button type="submit" class="btn btn-primary btn-block mb-4 btn-adauga-categorii">Adauga</button>
 </form>
 
-<div class="card text-white bg-primary mb-3" style="max-width: 18rem; margin: 20px auto 20px auto">
+<div class="card text-white bg-primary mb-3" style="max-width: 18rem; margin: 20px auto 80px auto">
     <div class="card-header">INFO</div>
     <div class="card-body">
         <h5 class="card-title">Adăugare categorii</h5>
@@ -65,7 +78,7 @@
 </div>
 
 <!--Footer-->
-<footer class="bg-light text-center">
+<footer class="bg-light text-center" style="margin-top: 210px">
 
     <div class="text-center p-3" style="background-color: rgb(2, 117, 216);">
         <p class="text-white"><b>©2022</b><br>Proiect: Depozit de jucării</p>
