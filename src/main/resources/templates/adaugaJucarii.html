@@ -50,32 +50,26 @@
 <h2 class="text-categorii">Adaugă jucării</h2>
 
 <form class="form-adauga-categorii" action="#" th:action="@{/addJucarie}" method="post"
-      th:object="${jucarie}">
-    <div class="form-outline mb-0 form-adauga-categorii-divs">
-        <label class="col-form-label-sm" for="forID"><b>ID</b></label>
-        <input class="form-control" id="forID" type="number" th:field="*{id}">
-
-    </div>
+      th:object="${toy}">
     <div class="form-outline mb-0 form-adauga-categorii-divs">
         <label class="col-form-label-sm" for="forNumeJucarii"><b>Nume</b></label>
-        <input class="form-control" id="forNumeJucarii" type="text" th:field="*{nume}">
-
+        <input class="form-control" id="forNumeJucarii" type="text" th:field="${toy.nume}">
     </div>
     <div class="form-outline mb-0 form-adauga-categorii-divs">
         <label class="col-form-label-sm" for="forProducator"><b>Producator</b></label>
-        <input class="form-control" id="forProducator" type="text" th:field="*{producator}">
+        <input class="form-control" id="forProducator" type="text" th:field="${toy.producator}">
     </div>
     <div class="form-outline mb-0 form-adauga-categorii-divs">
         <label class="col-form-label-sm" for="forVarsta"><b>Varsta</b></label>
-        <input class="form-control" id="forVarsta" type="text" th:field="*{varsta}">
+        <input class="form-control" id="forVarsta" type="text" th:field="${toy.varsta}">
     </div>
     <div class="form-outline mb-0 form-adauga-categorii-divs">
         <label class="col-form-label-sm" for="forPret"><b>Pret</b></label>
-        <input class="form-control" id="forPret" type="number" th:field="*{pret}">
+        <input class="form-control" id="forPret" type="number" th:field="${toy.pret}">
     </div>
     <div class="form-outline mb-0 form-adauga-categorii-divs">
         <label class="col-form-label-sm" for="forCantitate"><b>Cantitate</b></label>
-        <input class="form-control" id="forCantitate" type="number" th:field="*{cantitate}">
+        <input class="form-control" id="forCantitate" type="number" th:field="${toy.cantitate}">
     </div>
     <button type="submit" class="btn btn-primary btn-block mb-4 btn-adauga-categorii">Adauga</button>
 </form>

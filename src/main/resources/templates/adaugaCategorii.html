@@ -50,20 +50,16 @@
 <h2 class="text-categorii">Adaugă categorii</h2>
 
 <form class="form-adauga-categorii" action="#" th:action="@{/addCategorie}" method="post"
-      th:object="${categorie}">
-    <div class="form-outline mb-4 form-adauga-categorii-divs">
-        <label class="form-label" for="forID"><b>ID</b></label>
-        <input class="form-control" id="forID" type="number" th:field="*{id}">
+      th:object="${category}">
 
-    </div>
     <div class="form-outline mb-4 form-adauga-categorii-divs">
         <label class="form-label" for="forTipJucarii"><b>Tip jucarii</b></label>
-        <input class="form-control" id="forTipJucarii" type="text" th:field="*{tipJucarii}">
+        <input class="form-control" id="forTipJucarii" type="text" th:field="${category.tipJucarii}">
 
     </div>
     <div class="form-outline mb-4 form-adauga-categorii-divs">
         <label class="form-label" for="forCantitate"><b>Cantitate</b></label>
-        <input class="form-control" id="forCantitate" type="number" th:field="*{cantitate}">
+        <input class="form-control" id="forCantitate" type="number" th:field="${category.cantitate}">
 
     </div>
     <button type="submit" class="btn btn-primary btn-block mb-4 btn-adauga-categorii">Adauga</button>

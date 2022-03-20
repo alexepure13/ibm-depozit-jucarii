@@ -3,20 +3,29 @@ package com.example.model;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+
+import javax.persistence.*;
 
 @Setter
 @Getter
 @Data
-public class Categorii {
+
+@Entity
+@Table(name = "t_categories")
+
+public class Categories {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "tipjucarii")
     private String tipJucarii;
+    @Column
     public int cantitate;
 
-    public Categorii() {
+    public Categories() {
     }
 
-    public Categorii(int id, String tipJucarii, int cantitate) {
+    public Categories(int id, String tipJucarii, int cantitate) {
         this.id = id;
         this.tipJucarii = tipJucarii;
         this.cantitate = cantitate;

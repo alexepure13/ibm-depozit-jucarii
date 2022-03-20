@@ -1,115 +1,138 @@
-.thumbnail {
-    position: fixed;
+.btn-grad-toys {
+    background: rgb(0,89,64);
+    background: linear-gradient(90deg, rgba(0,89,64,1) 0%, rgba(76,170,133,1) 53%, rgba(126,201,171,1) 100%);
 }
 
-.caption {
-    font-family: 'Lobster', cursive;
-    color: #FFFFFF;
-    font-size: 150px;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    margin-top: 3rem !important;
-    margin-bottom: 3rem !important;
-    text-align: center;
-}
-
-.container-top{
-    position: relative;
-    text-align: center;
-    color: #FFFFFF;
-}
-
-.centered-top{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
-    font-family: 'Lobster', cursive;
-    font-size: 50px;
-}
-.text-categorii{
-    font-family: 'Lobster', cursive;
-    color: #0275d8;
-    text-align: center;
-    margin: 10px 0 10px 0;
-}
-
-.form-adauga-categorii{
+.btn-grad-toys {
+    width: 250px;
     margin: auto;
+    padding: 15px 45px;
     text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 100% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
 }
 
-.form-adauga-categorii-divs{
-    margin: 5px auto auto auto;
-    width: 30%;
+.btn-grad-toys:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
 
-.custom-footer{
-    position: fixed;
-    margin-top: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
+
+
+
+.btn-grad-category {
+    background: rgb(0,89,64);
+    background: linear-gradient(90deg, rgba(0,89,64,1) 0%, rgba(76,170,133,1) 53%, rgba(126,201,171,1) 100%);
 }
 
-.btn-adauga-categorii{
-margin: 30px auto 100px auto;
+.btn-grad-category {
+    width: 250px;
+    margin: auto;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 100% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
 }
 
-.statistics{
-    padding: 0;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
+.btn-grad-category:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
 }
+
+
 
 * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
 
-#myInput {
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    width: 100%;
+.buttons {
+    text-align: center;
+}
+
+.btn-hover {
+    width: 200px;
     font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    height: 55px;
+    text-align:center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
-#myTable {
-    border-collapse: collapse;
-    width: 100%;
-    border: 1px solid #ddd;
-    font-size: 18px;
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
 }
 
-#myTable th, #myTable td {
-    text-align: left;
-    padding: 12px;
+.btn-hover:focus {
+    outline: none;
 }
 
-#myTable tr {
-    border-bottom: 1px solid #ddd;
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
 }
-
-#myTable tr.header, #myTable tr:hover {
-    background-color: #f1f1f1;
+.btn-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
 }
-
-table.dataTable thead .sorting:after,
-table.dataTable thead .sorting:before,
-table.dataTable thead .sorting_asc:after,
-table.dataTable thead .sorting_asc:before,
-table.dataTable thead .sorting_asc_disabled:after,
-table.dataTable thead .sorting_asc_disabled:before,
-table.dataTable thead .sorting_desc:after,
-table.dataTable thead .sorting_desc:before,
-table.dataTable thead .sorting_desc_disabled:after,
-table.dataTable thead .sorting_desc_disabled:before {
-    bottom: .5em;
+.btn-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+.btn-hover.color-4 {
+    background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+    box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75);
+}
+.btn-hover.color-5 {
+    background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+.btn-hover.color-6 {
+    background-image: linear-gradient(to right, #009245, #FCEE21, #00A8C5, #D9E021);
+    box-shadow: 0 4px 15px 0 rgba(83, 176, 57, 0.75);
+}
+.btn-hover.color-7 {
+    background-image: linear-gradient(to right, #6253e1, #852D91, #A3A1FF, #F24645);
+    box-shadow: 0 4px 15px 0 rgba(126, 52, 161, 0.75);
+}
+.btn-hover.color-8 {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+}
+.btn-hover.color-9 {
+    background-image: linear-gradient(to right, rgba(45,116,213,1), rgba(45,116,213,1), rgba(121,137,212,1), rgba(121,137,212,1));
+    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}
+.btn-hover.color-10 {
+    background-image: linear-gradient(to right, #ed6ea0, #ec8c69, #f7186a , #FBB03B);
+    box-shadow: 0 4px 15px 0 rgba(236, 116, 149, 0.75);
+}
+.btn-hover.color-11 {
+    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
 }
