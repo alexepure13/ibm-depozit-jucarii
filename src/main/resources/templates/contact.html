@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/table-with-add.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/Header-Blue.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/Footer-Basic.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/color-contact-list.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/ionicons.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/fontawesome-all.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome.min.css}">
@@ -24,12 +25,12 @@
     <script defer th:src="@{/js/bootstrap.js}"></script>
     <script defer th:src="@{/js/custom.js}"></script>
 
-    <title>Adauga categorii</title>
+    <title>Contact</title>
 </head>
 <body>
 <!--<body th:style="'background-image:url(' + @{/img/wallpaper-add.png} + ');background-size: contain;background-repeat: no-repeat;background-position: center center; '">-->
 <!--<body style="min-height: 100vh;">-->
-<header class="header-blue-add" style="padding: 0px;">
+<header class="header-blue-add" style="padding: 0px; margin-bottom: 60px;">
     <nav class="navbar navbar-dark navbar-expand-md navigation-clean-search">
         <div class="container-fluid">
             <a class="navbar-brand" href="index" style="margin-left: 30px;">Depozitul de Jucării</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
@@ -51,7 +52,7 @@
     <div class="container hero" style="margin-top: 20px;padding-bottom: 20px;">
         <div class="row" style="text-align: left;">
             <div class="col-12 col-lg-6 col-xl-5 offset-xl-1" style="margin-bottom: 20px;">
-                <h1 style="text-align: left;margin-top: 0px;">Adaugă categorii</h1>
+                <h1 style="text-align: left;margin-top: 0px;">Contact</h1>
             </div>
             <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder" style="padding-bottom: 12px;">
                 <div class="phone-mockup"></div>
@@ -60,26 +61,48 @@
     </div>
 </header>
 
-
-<div id="contact" class="row" style="width: 400px;margin: auto;">
-    <div class="text-center">
-        <form action="#" th:action="@{/addCategorie}" method="post" th:object="${category}">
-            <div class="form-group mb-3"><label class="form-label" style="margin-top: 70px;">Tip jucării</label><input class="form-control" type="text" th:field="${category.tipJucarii}"/></div>
-            <div class="form-group mb-3"><label class="form-label">Cantitate</label><input class="form-control" type="number" th:field="${category.cantitate}"/></div>
-            <button action="/adaugaCategorii" type="submit" class="btn-hover color-8" style="margin: auto; text-align: center; margin-top: 30px; margin-bottom: 30px;">Adaugă categorie</button>
-        </form>
-
+<div style="margin-bottom: 40px; ">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css"/>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-lg-1 row-cols-xl-2">
+            <div class="col">
+                <div class="card radius-15 bg-primary">
+                    <div class="card-body text-center">
+                        <div class="p-4 radius-15"><img class="rounded-circle shadow p-1 bg-white" src="https://bootdey.com/img/Content/avatar/avatar7.png" width="110" height="110" alt />
+                            <h5 class="mb-0 mt-5 text-white">Epure Alexandru</h5>
+                            <p class="mb-3 text-white">Student</p>
+                            <div class="list-inline contacts-social mt-3 mb-3"><a class="list-inline-item border-0"><i class="bx bxl-facebook"></i></a><a class="list-inline-item border-0"><i class="bx bxl-twitter"></i></a><a class="list-inline-item border-0"><i class="bx bxl-linkedin"></i></a></div>
+                            <div class="d-grid"><a class="btn btn-white radius-15" href="#">Contact Me</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card radius-15 bg-danger">
+                    <div class="card-body text-center">
+                        <div class="p-4 radius-15"><img class="rounded-circle shadow p-1 bg-white" src="https://bootdey.com/img/Content/avatar/avatar3.png" width="110" height="110" alt />
+                            <h5 class="mb-0 mt-5 text-white">Băndărău Petronela</h5>
+                            <p class="mb-3 text-white">Student</p>
+                            <div class="list-inline contacts-social mt-3 mb-3"><a class="list-inline-item border-0"><i class="bx bxl-facebook"></i></a><a class="list-inline-item border-0"><i class="bx bxl-twitter"></i></a><a class="list-inline-item border-0"><i class="bx bxl-linkedin"></i></a></div>
+                            <div class="d-grid"><a class="btn btn-white radius-15" href="#">Contact Me</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-  <!--  <div class="col-md-6"><img id="pallo" class="img-fluid" style="margin-top: 100px;margin-bottom: 50px;" th:src="@{/img/sally.png}"/></div>-->
 </div>
 
-<div class="card text-white bg-primary mb-3" style="max-width: 18rem; margin: 20px auto 80px auto">
-    <div class="card-header" style="background-color: rgba(0,127,236,1);">INFO</div>
-    <div class="card-body" style="background-color: #0e8fff;">
-        <h5 class="card-title">Adăugare categorii</h5>
-        <p class="card-text">Din acestă pagină se pot adăuga cateogorii noi de jucării.</p>
-    </div>
-</div>
+
+<section class="contact-clean" style="width: 400px; margin: auto;">
+    <form method="post">
+        <h2 class="text-center">Contactează-ne</h2>
+        <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Nume" /></div>
+        <div class="mb-3"><input class="form-control is-invalid" type="email" name="email" placeholder="Email" /><small class="form-text text-danger">Te rugăm să introduci o adresă de email validă.</small></div>
+        <div class="mb-3"><textarea class="form-control" name="message" placeholder="Mesaj" rows="14"></textarea></div>
+        <button class="btn-hover color-8" style="margin: auto; text-align: center;">Trimite</button>
+    </form>
+</section>
 
 <!--Footer-->
 <footer class="footer-basic-add" style="margin-top: 100px">
