@@ -21,6 +21,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script defer th:src="@{/js/bootstrap.js}"></script>
     <script defer th:src="@{/js/custom.js}"></script>
@@ -85,7 +87,7 @@
                             <td th:text="${tempCategorii.tipJucarii}"</td>
                             <td th:text="${tempCategorii.cantitate}"</td>
                             <td class="text-center align-middle" style="max-height: 60px;height: 60px;">
-                                <a class="btn btnMaterial btn-flat primary semicircle" role="button"><i class="far fa-eye"></i>
+                                <a class="btn btnMaterial btn-flat primary semicircle btnView" role="button"><i class="far fa-eye"></i>
                                 </a>
                                 <a th:href="@{/editCategory/{id}(id=${tempCategorii.id})}" class="btn btnMaterial btn-flat success semicircle" role="button"><i class="fas fa-pen"></i>
                                 </a>
@@ -107,6 +109,33 @@
         </div>
     </div>
     <a href="adaugaCategorii"><button class="btn-hover color-9" style="margin-top: 35px;">Adaugă categorie</button></a>
+</div>
+
+<div class="modal" tabindex="-1" role="dialog" id="showDetails">
+    <form method="post" action="/Table/Update">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Detalii</h5>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form-group" style="margin: 20px;">
+                        <label for="txtTip" style="margin-bottom: 5px;">Tip jucărie</label>
+                        <input readonly type="text" class="form-control" id="txtTip" name="Tip">
+                    </div>
+                    <div class="form-group" style="margin: 20px;">
+                        <label for="txtCantitate" style="margin-bottom: 5px;">Cantitate</label>
+                        <input readonly type="number" class="form-control" id="txtCantitate" name="Cantitate">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button onclick="$('#showDetails').modal('hide');" type="button" class="btn btn-secondary" name="Close" id="ariaClose">Închide</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
 
@@ -172,6 +201,18 @@
         document.getElementById("totalCantCat").innerHTML = totalCantitate;
 
     }
+</script>
+
+<script>
+    $(".btnView").click(function () {
+        debugger;
+        var currentTds = $(this).closest("tr").find("td");
+        var cell2 = $(currentTds).eq(1).text();
+        var cell3 = $(currentTds).eq(2).text();
+        $("#txtTip").val(cell2);
+        $("#txtCantitate").val(cell3);
+        $("#showDetails").modal('show');
+    });
 </script>
 
 </body>

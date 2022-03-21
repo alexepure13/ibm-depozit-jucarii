@@ -1,7 +1,7 @@
 insert into t_categories (tipjucarii, cantitate) values ('Masinute',100);
 insert into t_categories (tipjucarii, cantitate) values ('Păpuși',50);
 insert into t_categories (tipjucarii, cantitate) values ('Căluți',70);
-insert into t_categories (tipjucarii, cantitate) values ('Ursuleț',80);
+insert into t_categories (tipjucarii, cantitate) values ('Ursuleți',80);
 insert into t_categories (tipjucarii, cantitate) values ('Set-uri copii',40);
 insert into t_categories (tipjucarii, cantitate) values ('LEGO',200);
 insert into t_categories (tipjucarii, cantitate) values ('Jucării piscină',40);
