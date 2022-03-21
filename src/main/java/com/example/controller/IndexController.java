@@ -52,6 +52,11 @@ public class IndexController {
         return "categorii";
     }
 
+    @GetMapping("/gallery")
+    public String showGallery(){
+        return "gallery";
+    }
+
     @GetMapping(value = "/contact")
     public String showContact() {
         return "contact";

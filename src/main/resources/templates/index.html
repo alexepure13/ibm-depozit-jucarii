@@ -26,8 +26,8 @@
 <body>
 
 
-<header class="header-blue-index">
-    <nav class="navbar navbar-dark navbar-expand-md" style="margin-top: 0px">
+<header class="header-blue-index" style="margin-bottom: 35px;">
+    <nav class="navbar navbar-dark navbar-expand-md" style="margin-top: 0px;">
         <div class="container-fluid"><a class="navbar-brand" href="index" style="margin-left: 30px;">Depozitul de Jucării</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col-12 col-lg-6 col-xl-5 offset-xl-1">
                 <h1 style="text-align: left;margin-top: 110px;">Bun venit la Depozitul de Jucării!</h1>
-                <p>Avem o colecție de <b>7</b> categorii și <b>560</b> jucării.</p><button class="btn btn-light btn-lg action-button" type="button">Află mai multe</button>
+                <p>Avem o colecție de <b>7</b> categorii și <b>560</b> jucării.</p><a href="#article-jmp"><button class="btn btn-light btn-lg action-button" type="button">Află mai multe</button></a>
             </div>
             <div class="col-md-5 col-lg-5 offset-lg-1 offset-xl-0 d-none d-lg-block phone-holder">
                 <div class="phone-mockup"><img class="device" th:src="@{/img/index_item_header.png}" style="transform: translate(4px) scale(1.63);margin-top: 100px;"></div>
@@ -55,20 +55,20 @@
     </div>
 </header>
 
-<section class="article-list">
+<section class="article-list" id="article-jmp">
     <div class="container">
         <div class="intro">
             <h2 class="text-center">Despre noi</h2>
             <p class="text-center"><br>Veti descoperi in depozitul nostru jucarii muzicale, chitare, orgi, jocuri biliard, masinute, jocuri airhockey dar si o gama variata de masinute, motociclete, atvuri electrice, jocuri de constructie, jucarii radiocomandate, toate la preturi de importator.<br><br></p>
         </div>
         <div class="row articles">
-            <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" th:src="@{/img/mini.png}"></a>
+            <div class="col-sm-6 col-md-4 item"><a href="categorii"><img class="img-fluid" th:src="@{/img/mini.png}"></a>
                 <h3 class="name">Categorii</h3>
-                <p class="description">De aici de pot vizualiza categoriile.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right"></i></a>
+                <p class="description">De aici de pot vizualiza categoriile.</p><a class="action" href="categorii"><i class="fa fa-arrow-circle-right"></i></a>
             </div>
-            <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" th:src="@{/img/fred.png}"></a>
+            <div class="col-sm-6 col-md-4 item"><a href="jucarii"><img class="img-fluid" th:src="@{/img/fred.png}"></a>
                 <h3 class="name">Jucării</h3>
-                <p class="description">De aici se pot vizualiza jucăriile.</p><a class="action" href="#"><i class="fa fa-arrow-circle-right"></i></a>
+                <p class="description">De aici se pot vizualiza jucăriile.</p><a class="action" href="jucarii"><i class="fa fa-arrow-circle-right"></i></a>
             </div>
             <div class="col-sm-6 col-md-4 item"><a href="#"><img class="img-fluid" th:src="@{/img/iubimiki.png}"></a>
                 <h3 class="name">Galerie</h3>
@@ -125,7 +125,7 @@
 </section>
 
 <footer class="footer-basic-index" style="margin-top: 100px">
-    <div class="social" style="color: var(--bs-white);"><a href="#"><i class="icon ion-social-github-outline"></i></a><a href="#"><i class="icon ion-ios-email-outline"></i></a></div>
+    <div class="social" style="color: var(--bs-white);"><a href="https://github.com/alexepure13/ibm-depozit-jucarii"><i class="icon ion-social-github-outline"></i></a><a href="#"><i class="icon ion-ios-email-outline"></i></a></div>
     <ul class="list-inline" style="color: var(--bs-white);">
         <li class="list-inline-item"><a href="index">Acasă</a></li>
         <li class="list-inline-item"><a href="categorii">Categorii</a></li>

@@ -47,7 +47,7 @@
             </div>
         </div>
     </nav>
-    <div class="container hero" style="margin-top: 20px;padding-bottom: 20px;">
+    <div class="container hero" style="margin-top: 5px;">
         <div class="row" style="text-align: left;">
             <div class="col-12 col-lg-6 col-xl-5 offset-xl-1" style="margin-bottom: 20px;">
                 <h1 style="text-align: left;margin-top: 0px;">Adaugă jucării</h1>
@@ -62,7 +62,7 @@
 <div id="contact" class="row" style="width: 400px;margin: auto;">
     <div class="text-center">
         <form action="#" th:action="@{/addJucarie}" method="post" th:object="${toy}">
-            <div class="form-group mb-3"><label class="form-label" style="margin-top: 120px;">Nume</label><input class="form-control" type="text" th:field="${toy.nume}"/></div>
+            <div class="form-group mb-3"><label class="form-label" style="margin-top: 50px;">Nume</label><input class="form-control" type="text" th:field="${toy.nume}"/></div>
             <div class="form-group mb-3"><label class="form-label">Producator</label><input class="form-control" type="text" th:field="${toy.producator}"/></div>
             <div class="form-group mb-3"><label class="form-label">Varsta</label><input class="form-control" type="text" th:field="${toy.varsta}"/></div>
             <div class="form-group mb-3"><label class="form-label">Pret</label><input class="form-control" type="number" th:field="${toy.pret}"/></div>
@@ -84,7 +84,7 @@
 
 <!--Footer-->
 <footer class="footer-basic-add" style="margin-top: 100px">
-    <div class="social" style="color: var(--bs-white);"><a href="#"><i class="icon ion-social-github-outline"></i></a><a href="#"><i class="icon ion-ios-email-outline"></i></a></div>
+    <div class="social" style="color: var(--bs-white);"><a href="https://github.com/alexepure13/ibm-depozit-jucarii"><i class="icon ion-social-github-outline"></i></a><a href="#"><i class="icon ion-ios-email-outline"></i></a></div>
     <ul class="list-inline" style="color: var(--bs-white);">
         <li class="list-inline-item"><a href="index">Acasă</a></li>
         <li class="list-inline-item"><a href="categorii">Categorii</a></li>
