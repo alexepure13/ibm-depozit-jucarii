@@ -1,29 +1,25 @@
 package com.example.controller;
 
-import com.example.model.Categories;
-import com.example.model.Toys;
-import com.example.service.CategoriesService;
-import com.example.service.ToysService;
+import com.example.dto.CategoryDto;
+import com.example.dto.ToyDto;
+import com.example.service.CategoryService;
+import com.example.service.ToyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 
 import javax.annotation.PostConstruct;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 
 @Controller
 public class IndexController {
 
     @Autowired
-    ToysService toysService;
+    ToyService toyService;
     @Autowired
-    CategoriesService categoriesService;
+    CategoryService categoryService;
 
     @GetMapping(value = "/index")
     public String getIndex() {
@@ -32,25 +28,46 @@ public class IndexController {
 
 
     @PostConstruct
-    private void loadJucarii() {
-
-
+    private void loadtoys() {
     }
 
-    @GetMapping("/jucarii")
-    public String showJucarii(Model model) {
-        model.addAttribute("jucarii", toysService.getToysList());
-
-        return "jucarii";
+    @GetMapping("/toys")
+    public String showtoys(Model model) {
+        model.addAttribute("toys", toyService.getToysList());
+        return "toys";
     }
 
 
-    @GetMapping("/categorii")
-    public String showCategorii(Model model) {
-        model.addAttribute("categorii", categoriesService.getCategoriesList());
-
-        return "categorii";
+    @GetMapping("/categories")
+    public String showcategories(Model model) {
+        model.addAttribute("categories", categoryService.getCategoriesList());
+        return "categories";
     }
+
+    @PostMapping("/categories/addCategory")
+    public String addNewCategory(CategoryDto categoryDto){
+        categoryService.saveCategory(categoryDto);
+        return "redirect:/categories";
+    }
+
+    @PostMapping("/categories/editCategory")
+    public String editCategory(CategoryDto categoryDto){
+        categoryService.saveCategory(categoryDto);
+        return "redirect:/categories";
+    }
+
+    @PostMapping("/toys/addToy")
+    public String addNewCategory(ToyDto toyDto){
+        toyService.saveToys(toyDto);
+        return "redirect:/toys";
+    }
+
+    @PostMapping("/toys/editToy")
+    public String editToy(ToyDto toyDto){
+        toyService.saveToys(toyDto);
+        return "redirect:/toys";
+    }
+
 
     @GetMapping("/gallery")
     public String showGallery(){
@@ -62,79 +79,19 @@ public class IndexController {
         return "contact";
     }
 
-
-    @GetMapping(value = "adaugaCategorii")
-    public String showAdaugaCategorii(Model model) {
-        model.addAttribute("category", new Categories());
-        return "adaugaCategorii";
-    }
-
-    @PostMapping("/addCategorie")
-    public String addCategorie(@ModelAttribute Categories category) {
-        categoriesService.saveCategory(category);
-
-        return "redirect:/categorii";
-    }
-
-
-    @GetMapping(value = "adaugaJucarii")
-    public String showAdaugaJucarii(Model model) {
-        model.addAttribute("toy", new Toys());
-        return "adaugaJucarii";
-    }
-
-    @PostMapping("addJucarie")
-    public String addJucarie(@ModelAttribute Toys toy) {
-
-        toysService.saveToys(toy);
-        return "redirect:/jucarii";
-    }
-
-    @RequestMapping(path="/deleteCategory/{id}")
-    public String deleteCategoryById(Model model, @PathVariable("id") int id)
+    @RequestMapping(path="/categories/deleteCategory/{id}")
+    public String deleteCategoryById(@PathVariable("id") int id)
     {
-        categoriesService.deleteCategory(id);
-        return "redirect:/categorii";
+        categoryService.deleteCategoryById(id);
+        return "redirect:/categories";
     }
 
     @RequestMapping(path="/deleteToy/{id}")
-    public String deleteToyById(Model model, @PathVariable("id") int id)
+    public String deleteToyById(@PathVariable("id") int id)
     {
-        toysService.deleteToysById(id);
-        return "redirect:/jucarii";
+        toyService.deleteToysById(id);
+        return "redirect:/toys";
     }
-
-/*    @RequestMapping(path={"/editCategory", "/editCategory/{id}"})
-    public String editCategoryById(Model model, @PathVariable("id") Optional<Integer> id) throws Exception {
-        if(id.isPresent()){
-            Categories category = categoriesService.getCategoryById(id.get());
-            model.addAttribute("edtCategory", category);
-            categoriesService.saveCategory(category);
-        }
-        else{
-            model.addAttribute("edtCategory", new Categories());
-        }
-        return  "editCategorii";
-    }*/
-
-    @GetMapping("/editCategory/{id}")
-    public ModelAndView showEditCategoryPage(@PathVariable(name = "id") int id) throws Exception {
-        ModelAndView editCategoryView = new ModelAndView("editCategorii");
-        Categories category = categoriesService.getCategoryById(id);
-        editCategoryView.addObject("category", category);
-
-        return editCategoryView;
-    }
-
-    @GetMapping("/editToy/{id}")
-    public ModelAndView showEditToyPage(@PathVariable(name = "id") int id) throws Exception {
-        ModelAndView editCategoryView = new ModelAndView("editJucarii");
-        Toys toy = toysService.getToyById(id);
-        editCategoryView.addObject("toy", toy);
-
-        return editCategoryView;
-    }
-
 
 
 

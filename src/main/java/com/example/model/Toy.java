@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="t_toys")
 
-public class Toys {
+public class Toy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -28,10 +28,10 @@ public class Toys {
     @Column
     public int cantitate;
 
-    public Toys() {
+    public Toy() {
     }
 
-    public Toys(int id, String nume, String producator, String varsta, double pret, int cantitate){
+    public Toy(int id, String nume, String producator, String varsta, double pret, int cantitate){
         this.id=id;
         this.nume = nume;
         this.producator = producator;

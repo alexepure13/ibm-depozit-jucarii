@@ -13,7 +13,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "t_categories")
 
-public class Categories {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -22,10 +22,11 @@ public class Categories {
     @Column
     public int cantitate;
 
-    public Categories() {
+    public Category() {
     }
 
-    public Categories(int id, String tipJucarii, int cantitate) {
+
+    public Category(int id, String tipJucarii, int cantitate) {
         this.id = id;
         this.tipJucarii = tipJucarii;
         this.cantitate = cantitate;
