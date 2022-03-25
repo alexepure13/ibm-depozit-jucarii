@@ -5,8 +5,8 @@ import javax.persistence.Column;
 public class CategoryDto {
 
     private int id;
-    private String tipJucarii;
-    public int cantitate;
+    private String typeOfToy;
+    public int quantity;
 
     public CategoryDto(){
 
@@ -20,19 +20,19 @@ public class CategoryDto {
         this.id = id;
     }
 
-    public String getTipJucarii() {
-        return tipJucarii;
+    public String getTypeOfToy() {
+        return typeOfToy;
     }
 
-    public void setTipJucarii(String tipJucarii) {
-        this.tipJucarii = tipJucarii;
+    public void setTypeOfToy(String typeOfToy) {
+        this.typeOfToy = typeOfToy;
     }
 
-    public int getCantitate() {
-        return cantitate;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCantitate(int cantitate) {
-        this.cantitate = cantitate;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

@@ -91,11 +91,11 @@
                         <tbody class="text-center">
                         <tr th:each="temptoys:${toys}">
                             <td th:text="${temptoys.id}"</td>
-                            <td th:text="${temptoys.nume}"</td>
-                            <td th:text="${temptoys.producator}"</td>
-                            <td th:text="${temptoys.varsta}"</td>
-                            <td th:text="${temptoys.pret}"</td>
-                            <td th:text="${temptoys.cantitate}"</td>
+                            <td th:text="${temptoys.name}"</td>
+                            <td th:text="${temptoys.manufacturer}"</td>
+                            <td th:text="${temptoys.age}"</td>
+                            <td th:text="${temptoys.price}"</td>
+                            <td th:text="${temptoys.quantity}"</td>
                             <td class="text-center align-middle" style="max-height: 60px;height: 60px;">
                                 <a class="btn btnMaterial btn-flat primary semicircle btnView" role="button" href="#"><i class="far fa-eye"></i></a>
                                 <a class="btn btnMaterial btn-flat success semicircle btnEdit" role="button"><i class="fas fa-pen"></i></a>
@@ -123,7 +123,7 @@
 
 <!--Details form-->
 <div class="modal" tabindex="-1" role="dialog" id="showDetails">
-    <form method="post" action="/Table/Update">
+    <form method="post">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -133,23 +133,23 @@
 
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtNume" style="margin-bottom: 5px;">Nume</label>
-                        <input readonly type="text" class="form-control" id="txtNume" name="Nume">
+                        <input readonly type="text" class="form-control" id="txtNume" name="name">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtProducator" style="margin-bottom: 5px;">Producător</label>
-                        <input readonly type="text" class="form-control" id="txtProducator" name="Producator">
+                        <input readonly type="text" class="form-control" id="txtProducator" name="manufacturer">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtVarsta" style="margin-bottom: 5px;">Vârstă</label>
-                        <input readonly type="text" class="form-control" id="txtVarsta" name="Varsta">
+                        <input readonly type="text" class="form-control" id="txtVarsta" name="age">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtPret" style="margin-bottom: 5px;">Preț</label>
-                        <input readonly type="number" class="form-control" id="txtPret" name="Pret">
+                        <input readonly type="number" class="form-control" id="txtPret" name="price">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtCantitate" style="margin-bottom: 5px;">Cantitate</label>
-                        <input readonly type="number" class="form-control" id="txtCantitate" name="Cantitate">
+                        <input readonly type="number" class="form-control" id="txtCantitate" name="quantity">
                     </div>
 
                 </div>
@@ -173,23 +173,23 @@
 
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtNume" style="margin-bottom: 5px;">Nume</label>
-                        <input type="text" class="form-control" id="txtNumeAdd" name="nume">
+                        <input type="text" class="form-control" id="txtNumeAdd" name="name">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtProducator" style="margin-bottom: 5px;">Producător</label>
-                        <input type="text" class="form-control" id="txtProducatorAdd" name="producator">
+                        <input type="text" class="form-control" id="txtProducatorAdd" name="manufacturer">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtVarsta" style="margin-bottom: 5px;">Vârstă</label>
-                        <input type="text" class="form-control" id="txtVarstaAdd" name="varsta">
+                        <input type="text" class="form-control" id="txtVarstaAdd" name="age">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtPret" style="margin-bottom: 5px;">Preț</label>
-                        <input type="number" class="form-control" id="txtPretAdd" name="pret">
+                        <input type="number" class="form-control" id="txtPretAdd" name="price">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtCantitate" style="margin-bottom: 5px;">Cantitate</label>
-                        <input type="number" class="form-control" id="txtCantitateAdd" name="cantitate">
+                        <input type="number" class="form-control" id="txtCantitateAdd" name="quantity">
                     </div>
 
                 </div>
@@ -217,23 +217,23 @@
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtNumeEdit" style="margin-bottom: 5px;">Nume</label>
-                        <input type="text" class="form-control" id="txtNumeEdit" name="nume">
+                        <input type="text" class="form-control" id="txtNumeEdit" name="name">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtProducatorEdit" style="margin-bottom: 5px;">Producător</label>
-                        <input type="text" class="form-control" id="txtProducatorEdit" name="producator">
+                        <input type="text" class="form-control" id="txtProducatorEdit" name="manufacturer">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtVarstaEdit" style="margin-bottom: 5px;">Vârstă</label>
-                        <input type="text" class="form-control" id="txtVarstaEdit" name="varsta">
+                        <input type="text" class="form-control" id="txtVarstaEdit" name="age">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtPretEdit" style="margin-bottom: 5px;">Preț</label>
-                        <input type="number" class="form-control" id="txtPretEdit" name="pret">
+                        <input type="number" class="form-control" id="txtPretEdit" name="price">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtCantitate" style="margin-bottom: 5px;">Cantitate</label>
-                        <input type="number" class="form-control" id="txtCantitateEdit" name="cantitate">
+                        <input type="number" class="form-control" id="txtCantitateEdit" name="quantity">
                     </div>
 
                 </div>

@@ -11,22 +11,22 @@ public class ToyMapper {
     public ToyDto mapToyDto(Toy toy){
         ToyDto toyDto = new ToyDto();
         toyDto.setId(toy.getId());
-        toyDto.setNume(toy.getNume());
-        toyDto.setProducator(toy.getProducator());
-        toyDto.setVarsta(toy.getVarsta());
-        toyDto.setPret(toy.getPret());
-        toyDto.setCantitate(toy.getCantitate());
+        toyDto.setName(toy.getName());
+        toyDto.setManufacturer(toy.getManufacturer());
+        toyDto.setAge(toy.getAge());
+        toyDto.setPrice(toy.getPrice());
+        toyDto.setQuantity(toy.getQuantity());
         return toyDto;
     }
 
     public Toy mapToy(ToyDto toyDto){
         Toy toy = new Toy();
         toy.setId(toyDto.getId());
-        toy.setNume(toyDto.getNume());
-        toy.setProducator(toyDto.getProducator());
-        toy.setVarsta(toyDto.getVarsta());
-        toy.setPret(toyDto.getPret());
-        toy.setCantitate(toyDto.getCantitate());
+        toy.setName(toyDto.getName());
+        toy.setManufacturer(toyDto.getManufacturer());
+        toy.setAge(toyDto.getAge());
+        toy.setPrice(toyDto.getPrice());
+        toy.setQuantity(toyDto.getQuantity());
         return toy;
     }
 }

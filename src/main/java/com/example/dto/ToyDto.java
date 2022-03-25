@@ -5,11 +5,11 @@ import javax.persistence.Column;
 public class ToyDto {
 
     private int id;
-    private String nume;
-    private String producator;
-    private String varsta;
-    public double pret;
-    public int cantitate;
+    private String name;
+    private String manufacturer;
+    private String age;
+    public double price;
+    public int quantity;
 
     public ToyDto(){
 
@@ -23,43 +23,43 @@ public class ToyDto {
         this.id = id;
     }
 
-    public String getNume() {
-        return nume;
+    public String getName() {
+        return name;
     }
 
-    public void setNume(String nume) {
-        this.nume = nume;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getProducator() {
-        return producator;
+    public String getManufacturer() {
+        return manufacturer;
     }
 
-    public void setProducator(String producator) {
-        this.producator = producator;
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
     }
 
-    public String getVarsta() {
-        return varsta;
+    public String getAge() {
+        return age;
     }
 
-    public void setVarsta(String varsta) {
-        this.varsta = varsta;
+    public void setAge(String age) {
+        this.age = age;
     }
 
-    public double getPret() {
-        return pret;
+    public double getPrice() {
+        return price;
     }
 
-    public void setPret(double pret) {
-        this.pret = pret;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public int getCantitate() {
-        return cantitate;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCantitate(int cantitate) {
-        this.cantitate = cantitate;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

@@ -10,16 +10,16 @@ public class CategoryMapper {
     public CategoryDto mapCategoryDto(Category category){
         CategoryDto categoryDto = new CategoryDto();
         categoryDto.setId(category.getId());
-        categoryDto.setTipJucarii(category.getTipJucarii());
-        categoryDto.setCantitate(category.getCantitate());
+        categoryDto.setTypeOfToy(category.getTypeOfToy());
+        categoryDto.setQuantity(category.getQuantity());
         return categoryDto;
     }
 
     public Category mapCategory(CategoryDto categoryDto){
         Category category = new Category();
         category.setId(categoryDto.getId());
-        category.setTipJucarii(categoryDto.getTipJucarii());
-        category.setCantitate(categoryDto.getCantitate());
+        category.setTypeOfToy(categoryDto.getTypeOfToy());
+        category.setQuantity(categoryDto.getQuantity());
         return category;
     }
 }

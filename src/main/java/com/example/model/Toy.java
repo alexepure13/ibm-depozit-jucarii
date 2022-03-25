@@ -17,26 +17,26 @@ public class Toy {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
-    private String nume;
-    @Column
-    private String producator;
-    @Column
-    private String varsta;
-    @Column
-    public double pret;
-    @Column
-    public int cantitate;
+    @Column (name="nume")
+    private String name;
+    @Column (name="producator")
+    private String manufacturer;
+    @Column (name="varsta")
+    private String age;
+    @Column (name="pret")
+    public double price;
+    @Column (name="cantitate")
+    public int quantity;
 
     public Toy() {
     }
 
-    public Toy(int id, String nume, String producator, String varsta, double pret, int cantitate){
+    public Toy(int id, String name, String manufacturer, String age, double price, int quantity){
         this.id=id;
-        this.nume = nume;
-        this.producator = producator;
-        this.varsta = varsta;
-        this.pret = pret;
-        this.cantitate = cantitate;
+        this.name = name;
+        this.manufacturer = manufacturer;
+        this.age = age;
+        this.price = price;
+        this.quantity = quantity;
     }
 }

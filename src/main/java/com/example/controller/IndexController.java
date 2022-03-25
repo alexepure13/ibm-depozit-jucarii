@@ -79,6 +79,12 @@ public class IndexController {
         return "contact";
     }
 
+    @GetMapping(value="/login")
+    public String showLogin(){return "login";};
+
+    @GetMapping(value="/register")
+    public String showRegister(){return "register";};
+
     @RequestMapping(path="/categories/deleteCategory/{id}")
     public String deleteCategoryById(@PathVariable("id") int id)
     {

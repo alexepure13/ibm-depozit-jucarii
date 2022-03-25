@@ -18,17 +18,17 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "tipjucarii")
-    private String tipJucarii;
-    @Column
-    public int cantitate;
+    private String typeOfToy;
+    @Column(name="cantitate")
+    public int quantity;
 
     public Category() {
     }
 
 
-    public Category(int id, String tipJucarii, int cantitate) {
+    public Category(int id, String typeOfToy, int quantity) {
         this.id = id;
-        this.tipJucarii = tipJucarii;
-        this.cantitate = cantitate;
+        this.typeOfToy = typeOfToy;
+        this.quantity = quantity;
     }
 }
