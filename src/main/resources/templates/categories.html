@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 
     <script defer th:src="@{/js/bootstrap.js}"></script>
     <script defer th:src="@{/js/custom.js}"></script>
@@ -104,6 +105,7 @@
 
                         </tbody>
                     </table>
+                    <button style="text-align: left;margin-bottom: 20px; margin-left: 20px; float: left;" class="btn btn-success" id="exportExcel">Download CSV</button>
                 </div>
             </div>
         </div>
@@ -346,6 +348,25 @@
         $("#txtTipDel").val(cell2);
         $("#txtCantitateDel").val(cell3);
         $("#confirmDelete").modal('show');
+    });
+</script>
+
+<script>
+    function html_table_to_excel(type)
+    {
+        var data = document.getElementById('ipi-table-category');
+
+        var file = XLSX.utils.table_to_book(data, {sheet: "sheet1"});
+
+        XLSX.write(file, { bookType: type, bookSST: true, type: 'base64' });
+
+        XLSX.writeFile(file, 'categories.' + type);
+    }
+
+    const export_button = document.getElementById('exportExcel');
+
+    export_button.addEventListener('click', () =>  {
+        html_table_to_excel('xlsx');
     });
 </script>
 

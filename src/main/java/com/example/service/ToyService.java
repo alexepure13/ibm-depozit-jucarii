@@ -1,16 +1,13 @@
 package com.example.service;
 
-import com.example.dto.CategoryDto;
 import com.example.dto.ToyDto;
 import com.example.mapper.ToyMapper;
-import com.example.model.Category;
 import com.example.model.Toy;
 import com.example.repository.ToyRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -33,9 +30,10 @@ public class ToyService {
         return toyMapper.mapToyDto(toy);
     }
 
-    public void saveToys(ToyDto toyDto){
+    public Toy saveToys(ToyDto toyDto){
         Toy toy = toyMapper.mapToy(toyDto);
         toyRepository.save(toy);
+        return toy;
     }
 
 
@@ -45,6 +43,8 @@ public class ToyService {
     public void deleteToysById(int id){
         toyRepository.deleteById(id);
     }
+
+
 
 
 }

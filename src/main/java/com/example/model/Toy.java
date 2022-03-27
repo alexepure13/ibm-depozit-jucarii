@@ -1,19 +1,25 @@
 package com.example.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
+import org.hibernate.collection.internal.AbstractPersistentCollection;
+import org.hibernate.mapping.Set;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 
-@Getter
-@Setter
-@Data
 
 @Entity
-@Table(name="t_toys")
+@Table(name = "t_toys")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 
-public class Toy {
+public class Toy implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -28,15 +34,9 @@ public class Toy {
     @Column (name="cantitate")
     public int quantity;
 
-    public Toy() {
-    }
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = true)
+    private Category category;
 
-    public Toy(int id, String name, String manufacturer, String age, double price, int quantity){
-        this.id=id;
-        this.name = name;
-        this.manufacturer = manufacturer;
-        this.age = age;
-        this.price = price;
-        this.quantity = quantity;
-    }
+
 }

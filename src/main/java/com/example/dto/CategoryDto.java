@@ -1,6 +1,14 @@
 package com.example.dto;
 
+import lombok.*;
+
 import javax.persistence.Column;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 
 public class CategoryDto {
 
@@ -8,31 +16,4 @@ public class CategoryDto {
     private String typeOfToy;
     public int quantity;
 
-    public CategoryDto(){
-
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTypeOfToy() {
-        return typeOfToy;
-    }
-
-    public void setTypeOfToy(String typeOfToy) {
-        this.typeOfToy = typeOfToy;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 }

@@ -28,6 +28,7 @@
     <script defer th:src="@{/js/custom.js}"></script>
     <script defer th:src="@{/js/table-btn.js}"></script>
     <script defer th:src="@{/js/table-btn-1.js}"></script>
+    <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
 </head>
 <body id="page-top" onload="loadAtStart()">
 
@@ -80,6 +81,7 @@
                         <tr>
                             <th class="text-center">ID</th>
                             <th class="text-center">Nume</th>
+                            <th class="text-center">Categoria</th>
                             <th class="text-center">Producător</th>
                             <th class="text-center">Vârstă</th>
                             <th class="text-center">Preț</th>
@@ -92,6 +94,7 @@
                         <tr th:each="temptoys:${toys}">
                             <td th:text="${temptoys.id}"</td>
                             <td th:text="${temptoys.name}"</td>
+                            <td th:text="${temptoys.category.typeOfToy}"></td>
                             <td th:text="${temptoys.manufacturer}"</td>
                             <td th:text="${temptoys.age}"</td>
                             <td th:text="${temptoys.price}"</td>
@@ -111,14 +114,15 @@
                             <td><b>Total: <span id="totalCantToys"></span></b></td>
                             <td></td>
                         </tr>
-
                         </tbody>
                     </table>
+                    <button style="text-align: left;margin-bottom: 20px; margin-left: 20px; float: left;" class="btn btn-success" id="exportExcel">Download CSV</button>
                 </div>
             </div>
         </div>
     </div>
-    <button class="btn-hover color-9 btnAdd" style="margin-top: 35px;">Adaugă jucărie</button></a>
+
+    <button class="btn-hover color-9 btnAdd" style="margin-top: 35px;">Adaugă jucărie</button>
 </div>
 
 <!--Details form-->
@@ -134,6 +138,10 @@
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtNume" style="margin-bottom: 5px;">Nume</label>
                         <input readonly type="text" class="form-control" id="txtNume" name="name">
+                    </div>
+                    <div class="form-group" style="margin: 20px;">
+                        <label for="txtCategory" style="margin-bottom: 5px;">Categorie</label>
+                        <input readonly type="text" class="form-control" id="txtCategory" name="category_id">
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtProducator" style="margin-bottom: 5px;">Producător</label>
@@ -163,7 +171,7 @@
 
 <!--Add form-->
 <div class="modal" tabindex="-1" role="dialog" id="addToy">
-    <form method="post" th:action="@{/toys/addToy}">
+    <form method="post" th:action="@{/toys/addToy}" th:object="${toy}" modelAttribute="toy">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -174,6 +182,12 @@
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtNume" style="margin-bottom: 5px;">Nume</label>
                         <input type="text" class="form-control" id="txtNumeAdd" name="name">
+                    </div>
+                    <div class="form-group" style="margin: 20px;">
+                        <label style="margin-bottom: 5px;">Categoria</label>
+                    <select name="category.id" type="number"  class="form-select form-select" title="Selectează categoria" data-action-box="true" required>
+                        <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.typeOfToy}"></option>
+                    </select>
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtProducator" style="margin-bottom: 5px;">Producător</label>
@@ -195,7 +209,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-primary" name="Close">Adaugă</button>
-                    <button onclick="$('#showDetails').modal('hide');" type="button" class="btn btn-secondary" name="Close" id="ariaAdd">Închide</button>
+                    <button onclick="$('#addToy').modal('hide');" type="button" class="btn btn-secondary" name="Close" id="ariaAdd">Închide</button>
                 </div>
             </div>
         </div>
@@ -208,7 +222,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Salvează</h5>
+                    <h5 class="modal-title">Editare</h5>
                 </div>
                 <div class="modal-body">
                     <div class="form-group" style="margin: 20px;">
@@ -218,6 +232,13 @@
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtNumeEdit" style="margin-bottom: 5px;">Nume</label>
                         <input type="text" class="form-control" id="txtNumeEdit" name="name">
+                    </div>
+
+                    <div class="form-group" style="margin: 20px;">
+                        <label style="margin-bottom: 5px;">Categoria</label>
+                        <select name="category_id" class="form-select form-select" title="Selectează categoria" data-action-box="true" required>
+                            <option id="txtCategoryEdit" th:each="category : ${categories}" th:value="${category.id}" th:text="${category.typeOfToy}"></option>
+                        </select>
                     </div>
                     <div class="form-group" style="margin: 20px;">
                         <label for="txtProducatorEdit" style="margin-bottom: 5px;">Producător</label>
@@ -317,16 +338,19 @@
     $(".btnView").click(function () {
         debugger;
         var currentTds = $(this).closest("tr").find("td");
+
         var cell2 = $(currentTds).eq(1).text();
         var cell3 = $(currentTds).eq(2).text();
         var cell4 = $(currentTds).eq(3).text();
         var cell5 = $(currentTds).eq(4).text();
         var cell6 = $(currentTds).eq(5).text();
+        var cell7 = $(currentTds).eq(6).text();
         $("#txtNume").val(cell2);
-        $("#txtProducator").val(cell3);
-        $("#txtVarsta").val(cell4);
-        $("#txtPret").val(cell5);
-        $("#txtCantitate").val(cell6);
+        $("#txtCategory").val(cell3);
+        $("#txtProducator").val(cell4);
+        $("#txtVarsta").val(cell5);
+        $("#txtPret").val(cell6);
+        $("#txtCantitate").val(cell7);
         $("#showDetails").modal('show');
     });
 </script>
@@ -341,12 +365,14 @@
         var cell4 = $(currentTds).eq(3).text();
         var cell5 = $(currentTds).eq(4).text();
         var cell6 = $(currentTds).eq(5).text();
+        var cell7 = $(currentTds).eq(6).text();
         $("#txtIdEdit").val(cell1);
         $("#txtNumeEdit").val(cell2);
-        $("#txtProducatorEdit").val(cell3);
-        $("#txtVarstaEdit").val(cell4);
-        $("#txtPretEdit").val(cell5);
-        $("#txtCantitateEdit").val(cell6);
+        $("#txtCategoriaEdit").val(cell3).innerHTML;
+        $("#txtProducatorEdit").val(cell4);
+        $("#txtVarstaEdit").val(cell5);
+        $("#txtPretEdit").val(cell6);
+        $("#txtCantitateEdit").val(cell7);
         $("#editToy").modal('show');
     });
 </script>
@@ -355,6 +381,25 @@
     $(".btnAdd").click(function () {
         debugger;
         $("#addToy").modal('show');
+    });
+</script>
+
+<script>
+    function html_table_to_excel(type)
+    {
+        var data = document.getElementById('ipi-table-category');
+
+        var file = XLSX.utils.table_to_book(data, {sheet: "sheet1"});
+
+        XLSX.write(file, { bookType: type, bookSST: true, type: 'base64' });
+
+        XLSX.writeFile(file, 'toys.' + type);
+    }
+
+    const export_button = document.getElementById('exportExcel');
+
+    export_button.addEventListener('click', () =>  {
+        html_table_to_excel('xlsx');
     });
 </script>
 

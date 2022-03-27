@@ -8,18 +8,18 @@ import org.springframework.stereotype.Component;
 public class CategoryMapper {
 
     public CategoryDto mapCategoryDto(Category category){
-        CategoryDto categoryDto = new CategoryDto();
-        categoryDto.setId(category.getId());
-        categoryDto.setTypeOfToy(category.getTypeOfToy());
-        categoryDto.setQuantity(category.getQuantity());
-        return categoryDto;
+        return CategoryDto.builder()
+                .id(category.getId())
+                .typeOfToy(category.getTypeOfToy())
+                .quantity(category.getQuantity())
+                .build();
     }
 
     public Category mapCategory(CategoryDto categoryDto){
-        Category category = new Category();
-        category.setId(categoryDto.getId());
-        category.setTypeOfToy(categoryDto.getTypeOfToy());
-        category.setQuantity(categoryDto.getQuantity());
-        return category;
+        return Category.builder()
+                .id(categoryDto.getId())
+                .typeOfToy(categoryDto.getTypeOfToy())
+                .quantity(categoryDto.getQuantity())
+                .build();
     }
 }

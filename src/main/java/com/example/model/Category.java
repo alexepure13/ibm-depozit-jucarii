@@ -1,34 +1,35 @@
 package com.example.model;
 
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.example.dto.ToyDto;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
 
 import javax.persistence.*;
-
-@Setter
-@Getter
-@Data
+import java.io.Serializable;
+import java.util.*;
 
 @Entity
 @Table(name = "t_categories")
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
 
-public class Category {
+public class Category implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
     @Column(name = "tipjucarii")
     private String typeOfToy;
+
     @Column(name="cantitate")
-    public int quantity;
+    private int quantity;
 
-    public Category() {
-    }
+    @OneToMany(targetEntity = Toy.class, mappedBy = "category",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    Set<Toy> toyList;
 
-
-    public Category(int id, String typeOfToy, int quantity) {
-        this.id = id;
-        this.typeOfToy = typeOfToy;
-        this.quantity = quantity;
-    }
 }

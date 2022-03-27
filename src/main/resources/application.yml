@@ -25,3 +25,15 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
+  mail:
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: 'true'
+          auth: 'true'
+    host: smtp.gmail.com
+    username: alexeprue70@gmail.com
+    password: keitdclpmokyjulg
+    port: '587'
+

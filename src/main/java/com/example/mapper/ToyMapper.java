@@ -1,5 +1,6 @@
 package com.example.mapper;
 
+import com.example.dto.CategoryDto;
 import com.example.dto.ToyDto;
 import com.example.model.Toy;
 import org.springframework.stereotype.Component;
@@ -9,24 +10,31 @@ public class ToyMapper {
 
 
     public ToyDto mapToyDto(Toy toy){
-        ToyDto toyDto = new ToyDto();
-        toyDto.setId(toy.getId());
-        toyDto.setName(toy.getName());
-        toyDto.setManufacturer(toy.getManufacturer());
-        toyDto.setAge(toy.getAge());
-        toyDto.setPrice(toy.getPrice());
-        toyDto.setQuantity(toy.getQuantity());
-        return toyDto;
+        CategoryDto categoryDto = CategoryDto.builder()
+                .id(toy.getCategory().getId())
+                .typeOfToy(toy.getCategory().getTypeOfToy())
+                .quantity(toy.getCategory().getQuantity())
+                .build();
+
+        return ToyDto.builder()
+                .id(toy.getId())
+                .name(toy.getName())
+                .age(toy.getAge())
+                .price(toy.getPrice())
+                .quantity(toy.getQuantity())
+                .manufacturer(toy.getManufacturer())
+                .category(categoryDto)
+                .build();
     }
 
     public Toy mapToy(ToyDto toyDto){
-        Toy toy = new Toy();
-        toy.setId(toyDto.getId());
-        toy.setName(toyDto.getName());
-        toy.setManufacturer(toyDto.getManufacturer());
-        toy.setAge(toyDto.getAge());
-        toy.setPrice(toyDto.getPrice());
-        toy.setQuantity(toyDto.getQuantity());
-        return toy;
+       return Toy.builder()
+               .id(toyDto.getId())
+               .name(toyDto.getName())
+               .age(toyDto.getAge())
+               .price(toyDto.getPrice())
+               .quantity(toyDto.getQuantity())
+               .manufacturer(toyDto.getManufacturer())
+               .build();
     }
 }
