@@ -77,13 +77,13 @@ public class IndexController {
     @PostMapping("/toys/addToy")
     public String addNewToy(@ModelAttribute("toy") ToyDto toyDto, Model model){
         List<CategoryDto> listCategories = categoryService.getCategoriesList();
-        model.addAttribute("toy", new ToyDto());
-        model.addAttribute("listCategories", listCategories);
+        toyDto.setCategory(categoryService.getCategoriesList().get(toyDto.getCategory().getId()-1));
+
         toyService.saveToys(toyDto);
         return "redirect:/toys";
     }
 
-    @GetMapping(value={"/addT"})
+/*    @GetMapping(value={"/addT"})
     public String adaugaJcuarii(final Model model) {
         model.addAttribute("toy", new Toy());
         return "employees/employees-add";
@@ -99,7 +99,7 @@ public class IndexController {
         final Toy toy = this.toyService.saveToys(toyDto);
         System.err.println(toy);
         return "toys";
-    }
+    }*/
 
 
 
@@ -149,59 +149,5 @@ public class IndexController {
         return done;
     }
 
-
-
-
-    //Ultimate
-
-    @GetMapping(value = "adaugaCategorii")
-    public String showAdaugaCategorii(Model model) {
-        model.addAttribute("category", new CategoryDto());
-        return "adaugaCategorii";
-    }
-
-    @PostMapping("/addCategorie")
-    public String addCategorie(@ModelAttribute CategoryDto categoryDto) {
-        categoryService.saveCategory(categoryDto);
-        return "redirect:/categories";
-    }
-
-
-    @GetMapping(value = "adaugaJucarii")
-    public String showAdaugaJucarii(Model model) {
-        List<CategoryDto> listCategories = categoryService.getCategoriesList();
-        model.addAttribute("toy", new ToyDto());
-        model.addAttribute("categories", listCategories);
-        return "adaugaJucarii";
-    }
-
-    @PostMapping("addJucarie")
-    public String addJucarie(@ModelAttribute ToyDto toyDto) {
-        toyService.saveToys(toyDto);
-        return "redirect:/toys";
-    }
-
-    @GetMapping("/editCategory/{id}")
-    public ModelAndView showEditCategoryPage(@PathVariable(name = "id") int id) throws Exception {
-        ModelAndView editCategoryView = new ModelAndView("editCategorii");
-        CategoryDto categoryDto = categoryService.getCategoryById(id);
-        editCategoryView.addObject("category", categoryDto);
-
-        return editCategoryView;
-    }
-
-    @GetMapping("/editToy/{id}")
-    public ModelAndView showEditToyPage(@PathVariable(name = "id") int id) throws Exception {
-        ModelAndView editCategoryView = new ModelAndView("editJucarii");
-        ToyDto toyDto = toyService.getToyById(id);
-        editCategoryView.addObject("toy", toyDto);
-        return editCategoryView;
-    }
-
-    @PostMapping("/addNewToy")
-    public String showAddNewToy(ToyDto toyDto){
-        toyService.saveToys(toyDto);
-        return "redirect:/toys";
-    }
 
 }

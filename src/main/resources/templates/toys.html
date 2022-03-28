@@ -232,7 +232,7 @@
 
 <!--Edit form-->
 <div class="modal" tabindex="-1" role="dialog" id="editToy">
-    <form method="post" th:action="@{/toys/editToy}">
+    <form method="post" th:action="@{/toys/addToy}" th:object="${toy}">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -250,8 +250,8 @@
 
                     <div class="form-group" style="margin: 20px;">
                         <label style="margin-bottom: 5px;">Categoria</label>
-                        <select name="category_id" class="form-select form-select" title="Selectează categoria" data-action-box="true" required>
-                            <option id="txtCategoryEdit" th:each="category : ${categories}" th:value="${category.id}" th:text="${category.typeOfToy}"></option>
+                        <select name="category.id" type="number"  class="form-select form-select" title="Selectează categoria" data-action-box="true" required>
+                            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.typeOfToy}"></option>
                         </select>
                     </div>
                     <div class="form-group" style="margin: 20px;">

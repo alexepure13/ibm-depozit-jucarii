@@ -35,8 +35,8 @@ public class Toy implements Serializable {
     public int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "category_id", nullable = true)
-    private Category category;
+    @JoinColumn(name = "category_id")
+    private Category category = new Category();
 
 
 }

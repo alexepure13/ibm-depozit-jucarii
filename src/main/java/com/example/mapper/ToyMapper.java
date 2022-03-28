@@ -28,6 +28,9 @@ public class ToyMapper {
     }
 
     public Toy mapToy(ToyDto toyDto){
+
+        CategoryMapper categoryMapper = new CategoryMapper();
+
        return Toy.builder()
                .id(toyDto.getId())
                .name(toyDto.getName())
@@ -35,6 +38,7 @@ public class ToyMapper {
                .price(toyDto.getPrice())
                .quantity(toyDto.getQuantity())
                .manufacturer(toyDto.getManufacturer())
+               .category(categoryMapper.mapCategory(toyDto.getCategory()))
                .build();
     }
 }

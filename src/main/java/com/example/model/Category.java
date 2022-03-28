@@ -30,6 +30,6 @@ public class Category implements Serializable {
 
     @OneToMany(targetEntity = Toy.class, mappedBy = "category",fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonIgnore
-    Set<Toy> toyList;
+    List<Toy> toyList;
 
 }
