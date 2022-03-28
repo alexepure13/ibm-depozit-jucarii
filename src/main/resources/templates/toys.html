@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/table-with-add.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/Header-Blue.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/css/Footer-Basic.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/image-slider.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/ionicons.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/fontawesome-all.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/fonts/font-awesome.min.css}">
@@ -44,11 +45,14 @@
                         <div class="dropdown-menu"><a class="dropdown-item" href="categories">Categorii</a><a class="dropdown-item" href="toys">Jucării</a><a class="dropdown-item" href="contact">Contact</a></div>
                     </li>
                 </ul>
-                <form class="d-flex me-auto navbar-form" target="_self">
-                    <div class="d-flex align-items-center"><label class="form-label d-flex mb-0"></label></div>
+                <form class="d-flex me-auto navbar-form" th:action="@{/logout}" method="post">
+                    <input type="submit" class="btn btn-light action-button" value="Logout" />
                 </form>
-                <i class="fa fa-envelope-o" style="margin-right: 20px;"></i><span class="navbar-text"> <a class="login" href="#" style="margin-right: 30px; color: #fff;">+40&nbsp; 734 434 596</a></span>
             </div>
+            <form class="d-flex me-auto navbar-form" target="_self">
+                <div class="d-flex align-items-center"><label class="form-label d-flex mb-0"></label></div>
+            </form><i class="fa fa-envelope-o" style="margin-right: 20px;"></i><span class="navbar-text"> <a class="login" href="#" style="margin-right: 30px; text-decoration: none;">+40&nbsp; 734 434 596</a></span>
+        </div>
         </div>
     </nav>
     <div class="container hero" style="margin-top: 5px;">
@@ -123,6 +127,16 @@
     </div>
 
     <button class="btn-hover color-9 btnAdd" style="margin-top: 35px;">Adaugă jucărie</button>
+</div>
+
+<div class="accordian">
+    <ul>
+        <li><a class="image_title" href="#">KungFu Panda</a><a href="#"><img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"></a></li>
+        <li><a class="image_title" href="#">Toy Story</a><a href="#"><img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg"></a></li>
+        <li><a class="image_title" href="#">Wall-E</a><a href="#"><img src="http://thecodeplayer.com/uploads/media/00kih8g.jpg"></a></li>
+        <li><a class="image_title" href="#">UP!</a><a href="#"><img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg"></a></li>
+        <li><a class="image_title" href="#">Cars</a><a href="#"><img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"></a></li>
+    </ul>
 </div>
 
 <!--Details form-->

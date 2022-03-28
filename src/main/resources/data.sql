@@ -13,3 +13,5 @@ insert into t_toys (nume, producator, varsta, pret, cantitate, category_id) valu
 insert into t_toys (nume, producator, varsta, pret, cantitate, category_id) values ('Set bucătărie', 'AlindaShop','3-8 ani',300.0,40,5);
 insert into t_toys (nume, producator, varsta, pret, cantitate, category_id) values ('LEGO Classic', 'LEGO','5-12 ani',150.0,200,6);
 insert into t_toys (nume, producator, varsta, pret, cantitate, category_id) values ('Pistol cu apă', 'AFYBABY','3-5 ani',70.0,20,7);
+
+insert into login (username, password) values ('admin','admin');

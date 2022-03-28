@@ -17,4 +17,10 @@ create table t_toys(
     foreign key (category_id) references t_categories(id)
 );
 
+create table login(
+    id integer auto_increment,
+    username varchar(50),
+    password varchar(50)
+);
+
 

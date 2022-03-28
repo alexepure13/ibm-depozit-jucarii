@@ -24,6 +24,8 @@
 
     <script defer th:src="@{/js/bootstrap.js}"></script>
     <script defer th:src="@{/js/custom.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script defer th:src="@{/js/script.js}"></script>
 
     <title>Contact</title>
 </head>
@@ -42,11 +44,14 @@
                         <div class="dropdown-menu"><a class="dropdown-item" href="categories">Categorii</a><a class="dropdown-item" href="toys">Jucării</a><a class="dropdown-item" href="contact">Contact</a></div>
                     </li>
                 </ul>
-                <form class="d-flex me-auto navbar-form" target="_self">
-                    <div class="d-flex align-items-center"><label class="form-label d-flex mb-0"></label></div>
+                <form class="d-flex me-auto navbar-form" th:action="@{/logout}" method="post">
+                    <input type="submit" class="btn btn-light action-button" value="Logout" />
                 </form>
-                <i class="fa fa-envelope-o" style="margin-right: 20px;"></i><span class="navbar-text"> <a class="login" href="#" style="margin-right: 30px; color: #fff;">+40&nbsp; 734 434 596</a></span>
             </div>
+            <form class="d-flex me-auto navbar-form" target="_self">
+                <div class="d-flex align-items-center"><label class="form-label d-flex mb-0"></label></div>
+            </form><i class="fa fa-envelope-o" style="margin-right: 20px;"></i><span class="navbar-text"> <a class="login" href="#" style="margin-right: 30px; text-decoration: none;">+40&nbsp; 734 434 596</a></span>
+        </div>
         </div>
     </nav>
     <div class="container hero" style="margin-top: 20px;padding-bottom: 20px;">
@@ -93,16 +98,27 @@
     </div>
 </div>
 
+<div class="container-md">
+    <h1 class="text-center m-2">Contactează-ne</h1>
+    <div class="text-center">
+        <small id="status" style="display: none;"></small>
+    </div>
+    <form id="sendMail">
+        <div class="form-group">
+            <label for="tomail" class="font-weight-bold mt-2">Către</label>
+            <input readonly value="alexepure50@gmail.com" type="text" id="tomail" name="tomail" class="form-control" placeholder="Enter your email address" required="required" />
 
-<section class="contact-clean" style="width: 400px; margin: auto;">
-    <form method="post">
-        <h2 class="text-center">Contactează-ne</h2>
-        <div class="mb-3"><input class="form-control" type="text" name="name" placeholder="Nume" /></div>
-        <div class="mb-3"><input class="form-control is-invalid" type="email" name="email" placeholder="Email" /><small class="form-text text-danger">Te rugăm să introduci o adresă de email validă.</small></div>
-        <div class="mb-3"><textarea class="form-control" name="message" placeholder="Mesaj" rows="14"></textarea></div>
-        <button class="btn-hover color-8" style="margin: auto; text-align: center;">Trimite</button>
+            <label for="subject" class="font-weight-bold mt-2">Subiect</label>
+            <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter your Subject" required="required" />
+
+            <label for="body" class="font-weight-bold mt-2">Mesaj</label>
+            <textarea name="body" id="body" class="form-control" rows="10" required="required" ></textarea>
+        </div>
+        <div class="text-center mt-2">
+            <button class="btn btn-primary" type="submit">Trimite</button>
+        </div>
     </form>
-</section>
+</div>
 
 <!--Footer-->
 <footer class="footer-basic-add" style="margin-top: 100px">

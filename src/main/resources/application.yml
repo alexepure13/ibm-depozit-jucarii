@@ -33,7 +33,12 @@ spring:
             enable: 'true'
           auth: 'true'
     host: smtp.gmail.com
-    username: alexeprue70@gmail.com
-    password: keitdclpmokyjulg
+    username: alexepure70@gmail.com
+    password: jkgiuydtdzinhebi
     port: '587'
+server:
+  port: 8080
+api:
+  base:
+    path: http://localhost:8080/login
 

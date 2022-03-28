@@ -2,11 +2,13 @@ package com.example.controller;
 
 import com.example.dto.CategoryDto;
 import com.example.dto.ToyDto;
-import com.example.model.Category;
+import com.example.model.Mail;
 import com.example.model.Toy;
 import com.example.service.CategoryService;
+import com.example.service.EmailService;
 import com.example.service.ToyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +28,8 @@ public class IndexController {
     ToyService toyService;
     @Autowired
     CategoryService categoryService;
-
+    @Autowired
+    private EmailService emailService;
 
     @GetMapping(value = "/index")
     public String getIndex() {
@@ -117,9 +120,6 @@ public class IndexController {
         return "contact";
     }
 
-    @GetMapping(value="/login")
-    public String showLogin(){return "login";};
-
     @GetMapping(value="/register")
     public String showRegister(){return "register";};
 
@@ -136,6 +136,19 @@ public class IndexController {
         toyService.deleteToysById(id);
         return "redirect:/toys";
     }
+
+    @RequestMapping(value="/", method = RequestMethod.GET)
+    public String home() {
+        return "index";
+    }
+
+    @RequestMapping(value="/sendMail", method = RequestMethod.POST)
+    @ResponseBody
+    public String sendMail(@ModelAttribute Mail mail) {
+        String done = this.emailService.sendMail(mail);
+        return done;
+    }
+
 
 
 
